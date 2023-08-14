@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import AddMiaudeloButton from "../../assets/AddMiaudeloButton";
 
 export default function HomePage() {
   const [miaudelos, setMiaudelos] = useState([]);
@@ -36,6 +37,7 @@ export default function HomePage() {
           </MoreInfoLink>
         </Card>
       ))}
+      <AddMiaudeloButton></AddMiaudeloButton>
     </PageContainer>
   );
 }

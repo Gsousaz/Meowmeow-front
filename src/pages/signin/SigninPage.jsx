@@ -23,8 +23,7 @@ export default function SigninPage() {
       if (response.data) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user", response.data.user);
-        alert(localStorage.token)
-        navigate("/homePage");
+        navigate("/home");
       }
     } catch (error) {
       alert(error.response ? error.response.data : error.message);

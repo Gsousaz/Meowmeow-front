@@ -1,4 +1,27 @@
+import React from 'react';
 import styled, { keyframes } from "styled-components";
+import { useNavigate } from 'react-router-dom';
+
+export default function MeowHeader() {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  }
+
+  return (
+    <Header>
+      <SiteName onClick={() => handleNavigation("/home")}>
+        <i className="fas fa-cat"></i>
+        MeowMeow
+      </SiteName>
+      <div>
+        <Button onClick={() => handleNavigation("/signup")}>Cadastro</Button>
+        <Button onClick={() => handleNavigation("/signin")}>Login</Button>
+      </div>
+    </Header>
+  );
+}
 
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {
@@ -22,6 +45,7 @@ const Header = styled.header`
   position: fixed;
   top: 0;
   z-index: 1000;
+  flex-direction: column;  
 `;
 
 const SiteName = styled.h1`
@@ -31,6 +55,7 @@ const SiteName = styled.h1`
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 15px;
 
   &:hover {
     animation: ${bounce} 1s;
@@ -42,13 +67,18 @@ const SiteName = styled.h1`
   }
 `;
 
-export default function MeowHeader() {
-  return (
-    <Header>
-      <SiteName>
-        <i className="fas fa-cat"></i>
-        MeowMeow
-      </SiteName>
-    </Header>
-  );
-}
+const Button = styled.button`
+  margin: 0 10px;
+  padding: 5px 15px;
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #000;
+  }
+`;

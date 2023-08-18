@@ -16,7 +16,7 @@ export default function MiaudeloRegistrationPage() {
 
     if (!token) {
       setError("Você precisa estar logado para registrar um miaudelo.");
-      return; 
+      return;
     }
 
     try {
@@ -98,6 +98,7 @@ export default function MiaudeloRegistrationPage() {
 }
 
 const PageContainer = styled.div`
+  margin-top: 80px;
   width: 100vw;
   padding: 20px;
   background-color: #f7f7f7;

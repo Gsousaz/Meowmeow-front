@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -38,12 +38,20 @@ export default function MiaudeloDetailPage() {
             <Name>{miaudelo.name}</Name>
             <ContactInfo>
               <ContactTitle>Informações para contato:</ContactTitle>
-              <ContactDetail><strong>Email:</strong> {miaudelo.owner_email}</ContactDetail>
-              <ContactDetail><strong>Telefone:</strong> {miaudelo.owner_telefone}</ContactDetail>
+              <ContactDetail>
+                <strong>Email:</strong> {miaudelo.owner_email}
+              </ContactDetail>
+              <ContactDetail>
+                <strong>Telefone:</strong> {miaudelo.owner_telefone}
+              </ContactDetail>
             </ContactInfo>
             <PhotosContainer>
               {fotos.map((foto) => (
-                <Thumbnail key={foto.id} src={foto.url} alt={`Foto de ${miaudelo.name}`} />
+                <Thumbnail
+                  key={foto.id}
+                  src={foto.url}
+                  alt={`Foto de ${miaudelo.name}`}
+                />
               ))}
             </PhotosContainer>
           </InfoContainer>
@@ -54,6 +62,7 @@ export default function MiaudeloDetailPage() {
 }
 
 const PageContainer = styled.div`
+  margin-top: 100px;
   width: 100vw;
   padding: 20px;
   background-color: #f7f7f7;
